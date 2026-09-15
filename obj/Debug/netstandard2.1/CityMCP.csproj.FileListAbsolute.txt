@@ -1,0 +1,9 @@
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\bin\Debug\netstandard2.1\CityMCP.deps.json
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\bin\Debug\netstandard2.1\CityMCP.dll
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\bin\Debug\netstandard2.1\CityMCP.pdb
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\obj\Debug\netstandard2.1\CityMCP.csproj.AssemblyReference.cache
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\obj\Debug\netstandard2.1\CityMCP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\obj\Debug\netstandard2.1\CityMCP.csproj.CoreCompileInputs.cache
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\obj\Debug\netstandard2.1\CityMCP.dll
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\obj\Debug\netstandard2.1\CityMCP.pdb
+C:\Users\Owner\Documents\Codex\2026-09-13\hel\work\CityMCP-beta3-package\Source\obj\Debug\netstandard2.1\CityMCP.sourcelink.json

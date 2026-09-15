@@ -58,6 +58,7 @@ namespace CityMCP
         private EntityQuery m_DistrictQuery;
 
         private readonly ConcurrentQueue<Action> m_ActionQueue = new ConcurrentQueue<Action>();
+        private int m_PanelUpdateCounter;
 
         public void EnqueueAction(Action action)
         {
@@ -152,6 +153,19 @@ namespace CityMCP
             });
 
             Mod.Log.Info("BridgeSystem (Full CityMCP Suite) initialized.");
+
+            try
+            {
+                var go = new UnityEngine.GameObject("CityMCPPanel");
+                UnityEngine.Object.DontDestroyOnLoad(go);
+                var panel = go.AddComponent<CityMCPPanel>();
+                panel.LinkCode = Mod.Settings?.PairingCode ?? "---";
+                Mod.Log.Info("CityMCPPanel created.");
+            }
+            catch (System.Exception ex)
+            {
+                Mod.Log.Warn($"Failed to create CityMCPPanel: {ex.Message}");
+            }
         }
 
         protected override void OnDestroy()
@@ -172,6 +186,30 @@ namespace CityMCP
                 {
                     Mod.Log.Error($"Error executing bridge action: {ex}");
                 }
+            }
+
+            m_PanelUpdateCounter++;
+            if (m_PanelUpdateCounter >= 60)
+            {
+                m_PanelUpdateCounter = 0;
+                try
+                {
+                    var panel = CityMCPPanel.Instance;
+                    if (panel != null && m_CitySystem != null && EntityManager.Exists(m_CitySystem.City))
+                    {
+                        int pop = 0, happy = 0, money = 0;
+                        if (EntityManager.HasComponent<Population>(m_CitySystem.City))
+                        {
+                            var p = EntityManager.GetComponentData<Population>(m_CitySystem.City);
+                            pop = p.m_Population;
+                            happy = p.m_AverageHappiness;
+                        }
+                        money = m_CitySystem.moneyAmount;
+                        panel.UpdateStats(pop, money, happy);
+                        panel.LinkCode = Mod.Settings?.PairingCode ?? "---";
+                    }
+                }
+                catch { }
             }
         }
 
