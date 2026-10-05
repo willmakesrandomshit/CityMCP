@@ -208,6 +208,10 @@ namespace CityMCP
                         panel.UpdateStats(pop, money, happy);
                         panel.LinkCode = Mod.Settings?.PairingCode ?? "---";
                     }
+                    else if (panel != null)
+                    {
+                        panel.ClearStats();
+                    }
                 }
                 catch { }
             }
